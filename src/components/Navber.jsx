@@ -2,7 +2,11 @@ import React from 'react'
 
 function Navber() {
   return (
-    <div>Navber</div>
+    <>
+    <div>
+        
+    </div>
+    </>
   )
 }
 
