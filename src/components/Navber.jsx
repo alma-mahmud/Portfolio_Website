@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
- const Navber = ({ darkMode, toggleMode}) => {
+ const Navber = ({ darkMode, toggleDarkMode}) => {
     const [activeSection, setActiveSection] = useState('home')
     const [isMemuOpen, setIsMemuOpen] =useState(false)
     const navItems = [
@@ -61,12 +61,12 @@ import { useState } from 'react'
                 </span>
             </motion.a>
             {/* Navigation Items */}
-            <div className='lg:flex items-center
+            <div className='hidden lg:flex items-center
             space-x-6'>
                 {navItems.map((item) => (
                   <a
                   key={item.name}
-                  href={item.href}
+                  href={item.link}
                   onClick={() => handleNavClick(item.name)}
                   className='relative'
                   >
@@ -82,9 +82,25 @@ import { useState } from 'react'
                     whileTap={{ scale: 0.95}}>
                         {item.name}
                     </motion.span>
-                    {}
+                    {activeSection === item.name.toLowerCase() && (
+                      <motion.div
+                      layoutId='navber-indicator'
+                      className={`absolute -bottom-1 left-0
+                        right-0 h-0.5 bg-linear-to-r rounded-full
+                        ${colors.indicator}`}>
+                      </motion.div>
+                    )}
                   </a>
                 ))}
+            </div>
+            <div className='flex items-center space-x-2'>
+              {/* Deark mode toggle */}
+              <motion.button
+              whileHover={{ scale: 1.1}}
+              whileTap={{ scale: 0.9}}
+              onClick={toggleDarkMode}>
+
+              </motion.button>
             </div>
           </div>
       </motion.nav>
