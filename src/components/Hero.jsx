@@ -60,9 +60,21 @@ const Hero = ({darkMode}) => {
                             </a>
                         ))}
                     </div>
-                    <h1 className={}>
+                    <h1 className={`title-font text-3xl sm:text-4xl
+                        lg:text-5xl mb-4 font-bold ${theme.textPrimary}`}
+                        data-aos='fade-up'
+                        data-aos-delay='500'>
                         Hi, I'm Al Mahmud
                     </h1>
+                    <p className={`mb-6 sm:mb-8 leading-relaxed max-w-md sm:max-w-lg ${theme.textSecondary}`}
+                    data-aos='fada-up'
+                    data-aos-delay='600'>
+                        "Frontend Developer | React & Redux Specialist. 3 months of internship experience. I thrive in collaborative environments, building scalable e-commerce sites and solving complex logic. Whether it’s handling Firebase auth or fetching data with Axios, I focus on writing clean, functional code. I’m a daily coder, a problem solver, and a team player looking to build things that matter."
+                    </p>
+                    {/* Button */}
+                    <div>
+                        
+                    </div>
                 </div>
             </div>
         </section>
