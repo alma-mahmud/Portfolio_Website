@@ -4,7 +4,7 @@ import whatsapp from '../assets/Hero/whatsapp.png'
 import facebook from '../assets/Hero/facebook.png'
 
 const Hero = ({darkMode}) => {
-    const socialIcon = [
+    const socialIcons = [
         { icon: github, alt: 'GitHub'},
         { icon: Linkedin, alt: 'Linkedin'},
         { icon: whatsapp, alt: 'whatsapp'},
@@ -28,7 +28,45 @@ const Hero = ({darkMode}) => {
 
     const theme = darkMode ? darkTheme : darkTheme ;
   return (
-    <div>Hero</div>
+    <div className='relative overflow-hidden min-h-screen flex flex-col'>
+        <section
+        id='home'
+        data-aos='fade-up'
+        data-aos-delat='250'
+        className='body-font z-10'>
+            <div className='container mx-auto flex px-4 sm:px-8 lg:px-14
+            py-12 lg:py-32 flex-col lg:flex-row items-center justify-between
+            lg:mt-0 mt-14'>
+                <div className='lg:h-1/2 w-full flex-col items-center
+                lg:items-start text-center lg:text-left mb-12 lg:mb-0'>
+                    <div className='flex justify-center lg:justify-start
+                    gap-4 sm:gap-6 sm:mb-7 w-full'>
+                        {socialIcons.map((social, index) => (
+                            <a
+                            key={index}
+                            href='#'
+                            target='_blank'
+                            data-aos-dely={`${400 + index * 100}`}
+                            className='transform hover:scale-110
+                            transition-transform duration-300'>
+                                <img
+                                src={social.icon}
+                                alt={social.icon}
+                                className={`w-8 h-8 sm:w-10 sm:h-10
+                                object-contain ${darkMode
+                                    ? ''
+                                    : 'filter brightness-75'
+                                }`} />
+                            </a>
+                        ))}
+                    </div>
+                    <h1 className={}>
+                        Hi, I'm Al Mahmud
+                    </h1>
+                </div>
+            </div>
+        </section>
+    </div>
   )
 }
 
