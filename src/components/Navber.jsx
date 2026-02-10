@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Moon, Sun } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
  const Navber = ({ darkMode, toggleDarkMode}) => {
@@ -20,7 +21,7 @@ import { useState } from 'react'
         textHover: 'text-orange-500',
         textActive: 'text-orange-600',
         indicator: 'from-orange-500 to-amber-500',
-        buttom: 'from-orange-500 to-amber-500',
+        button: 'from-orange-500 to-amber-500',
     };
 
     const darkColors = {
@@ -30,7 +31,7 @@ import { useState } from 'react'
         textHover: 'text-orange-400',
         textActive: 'text-orange-400',
         indicator: 'from-orange-500 to-amber-500',
-        buttom: 'from-orange-500 to-amber-500',
+        button: 'from-orange-500 to-amber-500',
     }
 
     const colors = darkMode ? darkColors : lighColors;
@@ -109,13 +110,66 @@ import { useState } from 'react'
                 : 'Switch to dark mode'
               }>
                   {darkMode ? (
-                    <Sun className='w-5 h-5 text-yellow-700'/>
+                    <Sun className='w-5 h-5 text-yellow-300'/>
                   ) : (
                     <Moon className='w-5 h-5 text-gray-700'/>
                   )}
               </motion.button>
+              {/* Botton */}
+              <motion.a
+              href='#contact'
+              whileHover={{ scale: 1.05}}
+              whileTap={{ scale: 0.95}}
+              className={`hidden lg:block px-6 py-2 font-semibold
+              rounded-full bg-linear-to-r ${colors.button}
+              text-white shadow-md hover:shadow-lg transition-shadow`}>
+                  Hire Me
+              </motion.a>
+            </div>
+            {/* Mobile Menu Button */}
+            <div className='flex lg:hidden items-center space-x-4 px-2'>
+                <motion.button
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setIsMemuOpen(!isMemuOpen)}
+                className={`p-2 rounded-lg ${
+                  darkMode ? 'bg-gray-700' : 'bg-gray-200'
+                }`}>
+                {isMemuOpen ? (
+                  <X className={`w-5 h-5 ${darkMode ? 'text-white' : 'text-gray-700'}`} />
+                ) : (
+                  <Menu className={`w-5 h-5 ${darkMode ? 'text-white' : 'text-gray-700'}`} />
+                )}
+              </motion.button>
             </div>
           </div>
+          {isMemuOpen && (
+            <motion.div
+            initial={{ opacity: 0, height: 0}}
+            animate={{opacity: 1, height: 'auto'}}
+            exit={{opacity: 0, height: 0.3}}
+            transition={{duration: 0.3}}
+            className={`absolute top-full left-0 right-0 mt-2 lg: hidden
+            ${darkMode
+              ? 'bg-gray-900/95'
+              : 'bg-white/95'
+            } backdrop-blur-lg rounded-xl shadow-lg border ${
+              darkMode ? 'border-gray-700' : 'border-gray-200'
+            }`}>
+              <div className='px-4 py-3 space-y-2'>
+                {navItems.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.link}
+                    onClick={() => handleNavClick(item.name)}
+                    className='block'>
+                      <motion.div
+                      
+                      ></motion.div>
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          )}
       </motion.nav>
     </div>
     </>
