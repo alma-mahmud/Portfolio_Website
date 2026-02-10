@@ -2,6 +2,8 @@ import github from '../assets/Hero/Github.png'
 import Linkedin from '../assets/Hero/Linkedin.png'
 import whatsapp from '../assets/Hero/whatsapp.png'
 import facebook from '../assets/Hero/facebook.png'
+import CV from '../assets/Hero/CV.pdf'
+import { DownloadIcon } from 'lucide-react'
 
 const Hero = ({darkMode}) => {
     const socialIcons = [
@@ -26,7 +28,7 @@ const Hero = ({darkMode}) => {
         decorativeCircle: 'bg-orange-400 opacity-20',
     };
 
-    const theme = darkMode ? darkTheme : darkTheme ;
+    const theme = darkMode ? darkTheme : lightTheme ;
   return (
     <div className='relative overflow-hidden min-h-screen flex flex-col'>
         <section
@@ -72,8 +74,17 @@ const Hero = ({darkMode}) => {
                         "Frontend Developer | React & Redux Specialist. 3 months of internship experience. I thrive in collaborative environments, building scalable e-commerce sites and solving complex logic. Whether it’s handling Firebase auth or fetching data with Axios, I focus on writing clean, functional code. I’m a daily coder, a problem solver, and a team player looking to build things that matter."
                     </p>
                     {/* Button */}
-                    <div>
-                        
+                    <div className='w-full pt-4 sm:pt-6'>
+                        <div className='flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4'
+                        data-aos='fade-up'
+                        data-aos-delay='700'>
+                            <a href={CV} download className='w-full sm:w-auto'>
+                                <button className='w-full sm:w-auto inline-flex items-center justify-center text-white bg-linear-to-r from-orange-500 to-amber-500 border-0 py-3 px-6 sm:px-8 hover:shadow-[0_0_40Px_rgb(155,165,0,0.7)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 transform'>
+                                    <DownloadIcon className='w-4 h-4 sm:h-5 sm:w-5 mr-2'/>
+                                    Download CV
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

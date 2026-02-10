@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import AOS from 'aos'
+import AOS, { refresh } from 'aos'
 import 'aos/dist/aos.css'
 import Navber from './components/Navber'
 import Hero from './components/Hero'
@@ -15,6 +15,10 @@ function App() {
     });
     document.documentElement.classList.add('dark');
   }, [])
+
+  useEffect(() => {
+    AOS, refresh()
+  }, [darkMode])
 
   const toggleDarkMode = () => {
     const newMode = !darkMode;
