@@ -2,8 +2,10 @@ import github from '../assets/Hero/Github.png'
 import Linkedin from '../assets/Hero/Linkedin.png'
 import whatsapp from '../assets/Hero/whatsapp.png'
 import facebook from '../assets/Hero/facebook.png'
+import hero from '../assets/Hero/Hero.png'
+import hi from '../assets/Hero/hi.png'
 import CV from '../assets/Hero/CV.pdf'
-import { DownloadIcon } from 'lucide-react'
+import { DownloadIcon, Mail } from 'lucide-react'
 
 const Hero = ({darkMode}) => {
     const socialIcons = [
@@ -63,13 +65,13 @@ const Hero = ({darkMode}) => {
                         ))}
                     </div>
                     <h1 className={`title-font text-3xl sm:text-4xl
-                        lg:text-5xl mb-4 font-bold ${theme.textPrimary}`}
+                        lg:text-5xl mb-4 font-bold pt-7 md:pt-0 ${theme.textPrimary}`}
                         data-aos='fade-up'
                         data-aos-delay='500'>
                         Hi, I'm Al Mahmud
                     </h1>
-                    <p className={`mb-6 sm:mb-8 leading-relaxed max-w-md sm:max-w-lg ${theme.textSecondary}`}
-                    data-aos='fada-up'
+                    <p className={`mb-6 sm:mb-8 leading-relaxed max-w-md md:text-center lg:text-left sm:max-w-lg ${theme.textSecondary}`}
+                    data-aos='fade-up'
                     data-aos-delay='600'>
                         "Frontend Developer | React & Redux Specialist. 3 months of internship experience. I thrive in collaborative environments, building scalable e-commerce sites and solving complex logic. Whether it’s handling Firebase auth or fetching data with Axios, I focus on writing clean, functional code. I’m a daily coder, a problem solver, and a team player looking to build things that matter."
                     </p>
@@ -79,14 +81,41 @@ const Hero = ({darkMode}) => {
                         data-aos='fade-up'
                         data-aos-delay='700'>
                             <a href={CV} download className='w-full sm:w-auto'>
-                                <button className='w-full sm:w-auto inline-flex items-center justify-center text-white bg-linear-to-r from-orange-500 to-amber-500 border-0 py-3 px-6 sm:px-8 hover:shadow-[0_0_40Px_rgb(155,165,0,0.7)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 transform'>
+                                <button className='w-full sm:w-auto inline-flex items-center justify-center text-white bg-linear-to-r from-orange-500 to-amber-500 border-0 py-3 px-6 sm:px-8 hover:shadow-[0_0_40Px_rgb(155,165,0,0.7)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 transform cursor-pointer'>
                                     <DownloadIcon className='w-4 h-4 sm:h-5 sm:w-5 mr-2'/>
                                     Download CV
+                                </button>
+                            </a>
+                            <a href="#contact" className='w-full sm:w-auto'>
+                                <button className={`w-full sm:w-auto inline-flex items-center ${theme.buttonSecondary} justify-center text-white border-0 py-3 px-6 sm:px-8 hover:shadow-[0_0_40Px_rgb(155,165,0,0.7)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 transform cursor-pointer`}>
+                                    <Mail className='w-4 h-4 sm:h-5 mr-2'/>
+                                    Contact Me
                                 </button>
                             </a>
                         </div>
                     </div>
                 </div>
+                {/* Hero Images */}
+                <div
+                className='lg:w-1/2 w-full max-w-md lg:max-w-lg mt-8 lg:mt-0 flex justify-center'
+                data-aos='fade-left'
+                data-aos-delay='400'>
+                    <div className='relative w-4/5 sm:w-3/4 lg:w-full'>
+                        <div className='relative overflow-hidden'>
+                            <img src={hero}
+                            alt="Hero Image"
+                            className='w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500'/>
+                        </div>
+                        <img
+                        src={hi}
+                        alt="Hi Icon"
+                        className='absolute -top-1 md:-top-5 lg:-top-6 sm:top-4 left-6 sm:left-20 md:left-10 lg:left-10 w-14 h-14 sm:w-20 sm:h-20 object-contain animate-bounce opacity-90 z-10 '/>
+                    </div>
+                </div>
+            </div>
+            <div className={`absolute -top-20 -left-20 w-40 h-40
+                sm:w-64 sm-h-64 ${theme.decorativeCircle} rounded-full mix-blend-multiply filter-blue-3xl opacity-10 animate-pulse delay-1000 hidden sm:block`}>
+
             </div>
         </section>
     </div>
