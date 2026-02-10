@@ -3,6 +3,7 @@ import { Moon, Sun } from 'lucide-react'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
+
  const Navber = ({ darkMode, toggleDarkMode}) => {
     const [activeSection, setActiveSection] = useState('home')
     const [isMemuOpen, setIsMemuOpen] =useState(false)
@@ -37,7 +38,7 @@ import { useState } from 'react'
     const colors = darkMode ? darkColors : lighColors;
 
     const handleNavClick = (itemName) => {
-      setActiveSection(itemName.toLowrCase());
+      setActiveSection(itemName.toLowerCase());
       setIsMemuOpen(false);
     };
     
@@ -148,7 +149,7 @@ import { useState } from 'react'
             animate={{opacity: 1, height: 'auto'}}
             exit={{opacity: 0, height: 0.3}}
             transition={{duration: 0.3}}
-            className={`absolute top-full left-0 right-0 mt-2 lg: hidden
+            className={`absolute top-full left-0 right-0 mt-2 lg:hidden
             ${darkMode
               ? 'bg-gray-900/95'
               : 'bg-white/95'
@@ -163,10 +164,33 @@ import { useState } from 'react'
                     onClick={() => handleNavClick(item.name)}
                     className='block'>
                       <motion.div
-                      
-                      ></motion.div>
+                      whileHover={{ x:5}}
+                      className={`py-3 px-4 rounded-lg text-center
+                        ${
+                          activeSection === item.name.toLowerCase()
+                          ? darkMode ? 'bg-gray-800' : 'bg-orange-50'
+                          : ''
+                        }`}>
+                          <span 
+                          className={`font-medium ${
+                            activeSection === item.name.toLowerCase()
+                            ? colors.textActive
+                            : colors.textSecondary
+                          }`}>
+                            {item.name}
+                          </span>
+                      </motion.div>
                   </a>
                 ))}
+                <motion.a
+                href='#contact'
+                onClick={() => setIsMemuOpen(false)}
+                whileTap={{ scale: 0.95}}
+                className={`block py-3 px-4 text-center font-semibold
+                rounded-lg bg-linear-to-r ${colors.button}
+                text-white shadow-md`}>
+                  Hire Me
+              </motion.a>
               </div>
             </motion.div>
           )}
