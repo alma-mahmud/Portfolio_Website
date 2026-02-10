@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Navber from './components/Navber'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import Navber from './components/Navber'
+import Hero from './components/Hero'
 
 function App() {
   const [darkMode, setDarkMode] = useState(true)
@@ -28,6 +29,7 @@ function App() {
       : 'bg-linear-to-br from-gray-50 to-blue-50 min-h-screen'
     }>
       <Navber darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <Hero darkMode={darkMode} />
     </div>
   ) 
 }
