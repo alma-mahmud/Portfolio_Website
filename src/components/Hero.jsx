@@ -9,10 +9,22 @@ import { DownloadIcon, Mail } from 'lucide-react'
 
 const Hero = ({darkMode}) => {
     const socialIcons = [
-        { icon: github, alt: 'GitHub'},
-        { icon: Linkedin, alt: 'Linkedin'},
-        { icon: whatsapp, alt: 'whatsapp'},
-        { icon: facebook, alt: 'facebook'},
+        { icon: github,
+          alt: 'GitHub',
+          link: 'https://github.com/alma-mahmud',
+        },
+        { icon: Linkedin,
+          alt: 'Linkedin',
+          link: 'https://www.linkedin.com/in/alma-mahmud/',
+        },
+        { icon: whatsapp,
+          alt: 'whatsapp',
+          link: 'https://wa.me/8801566068310',
+        },
+        { icon: facebook,
+          alt: 'facebook',
+          link: 'https://www.facebook.com/almahmud088',
+        },
     ];
     const darkTheme = {
         textPrimary: 'text-white',
@@ -48,8 +60,9 @@ const Hero = ({darkMode}) => {
                         {socialIcons.map((social, index) => (
                             <a
                             key={index}
-                            href='#'
+                            href={social.link}
                             target='_blank'
+                            rel="noopener noreferrer"
                             data-aos-delay={`${400 + index * 100}`}
                             className='transform hover:scale-110
                             transition-transform duration-300'>
