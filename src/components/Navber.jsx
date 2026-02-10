@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Moon, Sun } from 'lucide-react'
 import { useState } from 'react'
 
  const Navber = ({ darkMode, toggleDarkMode}) => {
@@ -30,7 +31,7 @@ import { useState } from 'react'
         textActive: 'text-orange-400',
         indicator: 'from-orange-500 to-amber-500',
         buttom: 'from-orange-500 to-amber-500',
-    };
+    }
 
     const colors = darkMode ? darkColors : lighColors;
 
@@ -45,7 +46,7 @@ import { useState } from 'react'
       <motion.nav
         initial={{ y: -100}}
         animate={{ y: 0}}
-        transiton={{ duration: 0.5}}
+        transition={{ duration: 0.5}}
         className={`flex items-center justify-center ${colors.navBg}
         backdrop-blur-lg rounded-2xl px-4 lg:px-8 py-2 shadow-lg`}>
           <div className='flex items-center justify-between
@@ -98,8 +99,20 @@ import { useState } from 'react'
               <motion.button
               whileHover={{ scale: 1.1}}
               whileTap={{ scale: 0.9}}
-              onClick={toggleDarkMode}>
-
+              onClick={toggleDarkMode}
+              className={`p-2 rounded-full ${darkMode
+                ? 'bg-gray-700'
+                : 'bg-gray-200'
+              } transition-colors`}
+              aria-label={darkMode
+                ? 'Switch to Light mode'
+                : 'Switch to dark mode'
+              }>
+                  {darkMode ? (
+                    <Sun className='w-5 h-5 text-yellow-700'/>
+                  ) : (
+                    <Moon className='w-5 h-5 text-gray-700'/>
+                  )}
               </motion.button>
             </div>
           </div>
