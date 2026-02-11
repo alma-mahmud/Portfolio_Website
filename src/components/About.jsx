@@ -2,7 +2,7 @@ import aboutimg from '../../src/assets/About/about.jpg'
 
 const About = ({darkMode}) => {
   return (
-    <section id="about" className={`min-h-screen overflow-hidden flex items-center justify-center px-4 sm:px-6 ${
+    <section id="about" className={`min-h-[100dvh] overflow-hidden flex items-center justify-center px-4 sm:px-6 ${
       darkMode ? 'bg-gray-900' : 'bg-gray-50'
     }`}>
       <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
@@ -186,6 +186,7 @@ const About = ({darkMode}) => {
             }
           `}</style>
         </figure>
+        {/*========= Right Part ==========*/}
         <article
             data-aos='fade-left'
             data-aos-delay='300'
@@ -207,6 +208,49 @@ const About = ({darkMode}) => {
                     data-aos-delay='500'>
                     "I’m a Frontend Developer who loves building things that work (and fixing them when they don't). With experience in React, Redux, and Firebase, I’ve spent the last few months intern-ing and building e-commerce platforms in collaborative environments. I don't just follow tutorials—I push code to GitHub daily, solve real-world problems, and believe that the best products are built through teamwork and constant iteration."
                 </p>
+                <div
+                className='flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 mb-6 sm:mb-8'>
+                    <div
+                    className='text-center'
+                    data-aos='zoom-in'
+                    data-aos-delay='600'>
+                        <div className='text-2xl sm:text-3xl
+                        lg:text-4xl font-bold text-orange-400'>
+                          4+
+                        </div>
+                        <div className={`text-xs sm:text-sm lg:text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                          Education
+                        </div>
+                    </div>
+                    <div
+                    className='text-center'
+                    data-aos='zoom-in'
+                    data-aos-delay='600'>
+                        <div className='text-2xl sm:text-3xl
+                        lg:text-4xl font-bold text-orange-400'>
+                          3+
+                        </div>
+                        <div className={`text-xs sm:text-sm lg:text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                          Month Experience
+                        </div>
+                    </div>
+                    <div
+                    className='text-center'
+                    data-aos='zoom-in'
+                    data-aos-delay='600'>
+                        <div className='text-2xl sm:text-3xl
+                        lg:text-4xl font-bold text-orange-400'>
+                          40+
+                        </div>
+                        <div className={`text-xs sm:text-sm lg:text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                          Projects Completed
+                        </div>
+                    </div>
+                </div>
+                <button 
+                className={`w-full sm:w-auto border-2 border-orange-500 inline-flex items-center  justify-center py-2 px-4 sm:px-6 hover:shadow-[0_0_40px_rgba(255,165,0,0.7)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 transform cursor-pointer`}>
+                  Learn More
+                </button>
         </article>
       </div>
     </section>
