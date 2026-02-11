@@ -1,4 +1,4 @@
-import { div } from 'framer-motion/client'
+import {FaExternalLinkAlt, FaGithub} from 'react-icons/fa'
 import ecommerce from '../../src/assets/Profiles/profile1.png'
 import profile2 from '../../src/assets/Profiles/profile2.jpg'
 import profile3 from '../../src/assets/Profiles/profile3.png'
@@ -75,7 +75,7 @@ const Projects = ({darkMode}) => {
                     style={{
                         background: darkMode
                         ? 'linear-gradient(to right, #1f2937, #111827)'
-                        : 'linear-gradient(to right, #ffffff, #f59e0b)',
+                        : 'linear-gradient(to right, #ffffff, #f9fafb)',
                         borderColor: darkMode ? '#374151' : '#e5e7eb'
                     }}
                     className='group rounded-xl border duration-300 hover:border-orange-500/50 transition-all'
@@ -84,10 +84,84 @@ const Projects = ({darkMode}) => {
                         <div className='h-36 overflow-hidden rounded-t-xl'>
                             <img src={project.image}
                             alt={project.title}
-                            className='w-full h-full object-cover'/>
+                            className='w-full h-full object-cover
+                            group-hover:scale-110 transition-transform duration-500'/>
+                        </div>
+                        <div className='p-4'>
+                            <h3
+                            className='text-lg font-bold mb-2'
+                            style={{
+                                color: darkMode ? 'white' : '#1f2937'
+                            }}>
+                                {project.title}
+                            </h3>
+                            <p
+                            className='text-sm mb-3'
+                            style={{
+                                color: darkMode ? '#d1d5db' : '#6b7280'
+                            }}>
+                                {project.desc}
+                            </p>
+                            <div className='flex flex-wrap gap-1.5 mb-4'>
+                                {project.tages.map((tag, idx) => (
+                                    <span
+                                    key={idx}
+                                    style={{
+                                        backgroundColor: darkMode ? '#374151' : '#f3f4f6',
+                                        color: darkMode ? '#d1d5db' : '#4b5563'
+                                    }}
+                                    className='px-2 py-1 text-xs rounded-full'>
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                            <div className='flex gap-2'>
+                                <a href="#"
+                                style={{
+                                    backgroundColor: darkMode ? '#374151' : '#f3f4f6',
+                                    color: darkMode ? 'white' : '#374151'
+                                }}
+                                className='flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm rounded-lg hover:opacity-90 
+                                transition-colors'
+                                data-aos='zoom-in'
+                                data-aos-delay='300'
+                                >
+                                    <FaGithub className='text-sm'/>
+                                    <span>Code</span>
+                                </a>
+                                {/*==== Demo ====*/}
+                                    <a href="#"
+                                style={{
+                                    background: 'linear-gradient(to right, #f97316, #f59e0b)',
+                                }}
+                                className='flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-white text-sm rounded-lg hover:shadow-lg hover:shadow-orange-500/25 
+                                transition-all'
+                                data-aos='zoom-in'
+                                data-aos-delay='400'
+                                >
+                                    <FaExternalLinkAlt className='text-sm'/>
+                                    <span>Demo</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 ))}
+            </div>
+            <div
+            className='text-center mt-10'>
+                <a href="#"
+                style={{
+                background: 'linear-gradient(to right, #f97316, #f59e0b)',
+                }}
+                className='inline-flex items-center font-semibold gap-2 px-7 py-4 text-white text-sm rounded-full hover:shadow-lg hover:shadow-orange-500/25 
+                transition-all'
+                data-aos='zoom-in'
+                data-aos-delay='400'
+                >
+                <FaGithub />
+                <span>View All Projects</span>
+                <FaExternalLinkAlt className='text-sm'/>
+                </a>
             </div>
         </div>
     </section>
