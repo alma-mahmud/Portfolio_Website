@@ -61,179 +61,199 @@ const About = ({darkMode}) => {
               data-aos-delay='400'
             />
 
-            {/* Floating Tech Icons - Premium Version */}
+            {/* Premium Positioned Tech Icons - Strategic Layout */}
 
-            {/* 1. JavaScript - Top Left */}
+            {/* 1. JavaScript - Top Left (Primary Position) */}
             <div className="absolute 
-              top-6 -left-6 
-              sm:top-8 sm:-left-7
-              md:top-12 md:-left-8
-              lg:top-14 lg:-left-10
-              xl:top-16 xl:-left-12
+              top-2 -left-5 
+              sm:top-4 sm:-left-6
+              md:top-6 md:-left-8
+              lg:top-8 lg:-left-14
+              xl:top-10 xl:-left-16
               w-16 h-16 
               sm:w-18 sm:h-18
               md:w-20 md:h-20
-              lg:w-24 lg:h-24
-              xl:w-28 xl:h-28
+              lg:w-26 lg:h-26
+              xl:w-30 xl:h-30
               bg-gradient-to-br from-[#f7df1e] to-[#e8cf15]
               rounded-2xl 
-              shadow-[0_15px_40px_rgba(247,223,30,0.4),0_5px_15px_rgba(0,0,0,0.3)]
+              shadow-[0_20px_50px_rgba(247,223,30,0.45),0_8px_20px_rgba(0,0,0,0.35)]
               flex items-center justify-center z-20
-              hover:scale-110 hover:shadow-[0_20px_50px_rgba(247,223,30,0.5),0_8px_20px_rgba(0,0,0,0.4)]
-              transition-all duration-300 -rotate-12
+              hover:scale-110 hover:shadow-[0_25px_60px_rgba(247,223,30,0.55),0_10px_25px_rgba(0,0,0,0.45)]
+              transition-all duration-300 -rotate-15
               animate-float-delayed
-              border border-[#f7df1e]/20"
+              border-2 border-[#f7df1e]/30"
               data-aos='fade-right'
               data-aos-delay='800'>
-              <span className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-black drop-shadow-sm">JS</span>
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black drop-shadow-md">JS</span>
             </div>
 
-            {/* 2. React - Top Right */}
+            {/* 2. React - Top Right (Prominent) */}
             <div className="absolute 
-              top-4 -right-5
-              sm:top-6 sm:-right-6
-              md:top-8 md:-right-7
-              lg:top-10 lg:-right-9
-              xl:top-12 xl:-right-11
-              w-14 h-14
-              sm:w-16 sm:h-16
-              md:w-18 md:h-18
-              lg:w-22 lg:h-22
-              xl:w-26 xl:h-26
+              top-0 -right-5
+              sm:top-2 sm:-right-6
+              md:top-4 md:-right-8
+              lg:top-6 lg:-right-13
+              xl:top-8 xl:-right-15
+              w-15 h-15
+              sm:w-17 sm:h-17
+              md:w-19 md:h-19
+              lg:w-25 lg:h-25
+              xl:w-29 xl:h-29
               bg-white
               rounded-full 
-              shadow-[0_15px_40px_rgba(97,218,251,0.4),0_5px_15px_rgba(0,0,0,0.3)]
+              shadow-[0_20px_50px_rgba(97,218,251,0.45),0_8px_20px_rgba(0,0,0,0.35)]
               flex items-center justify-center z-20
-              hover:scale-110 hover:shadow-[0_20px_50px_rgba(97,218,251,0.5),0_8px_20px_rgba(0,0,0,0.4)]
-              transition-all duration-300 rotate-12
+              hover:scale-110 hover:shadow-[0_25px_60px_rgba(97,218,251,0.55),0_10px_25px_rgba(0,0,0,0.45)]
+              transition-all duration-300 rotate-15
               animate-float
-              border border-cyan-100"
+              border-2 border-cyan-200/40
+              ring-4 ring-cyan-400/10"
               data-aos='fade-left'
               data-aos-delay='1000'>
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
                 alt="React"
-                className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-14 lg:h-14 xl:w-16 xl:h-16 drop-shadow-sm" />
+                className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-16 lg:h-16 xl:w-18 xl:h-18 drop-shadow-md" />
             </div>
 
-            {/* 3. Tailwind CSS - Right Middle */}
+            {/* 3. Tailwind CSS - Right Upper-Middle (Strategic) */}
             <div className="absolute 
-              top-1/2 -translate-y-1/2 -right-5
-              sm:-right-6
-              md:-right-7
-              lg:-right-9
-              xl:-right-11
-              w-12 h-12
-              sm:w-14 sm:h-14
-              md:w-16 md:h-16
-              lg:w-20 lg:h-20
-              xl:w-24 xl:h-24
+              top-[35%] -right-4
+              sm:top-[35%] sm:-right-5
+              md:top-[35%] md:-right-7
+              lg:top-[35%] lg:-right-12
+              xl:top-[35%] xl:-right-14
+              w-13 h-13
+              sm:w-15 sm:h-15
+              md:w-17 md:h-17
+              lg:w-23 lg:h-23
+              xl:w-27 xl:h-27
               bg-gradient-to-br from-[#38bdf8] to-[#0ea5e9]
               rounded-2xl 
-              shadow-[0_15px_40px_rgba(56,189,248,0.4),0_5px_15px_rgba(0,0,0,0.3)]
+              shadow-[0_20px_50px_rgba(56,189,248,0.45),0_8px_20px_rgba(0,0,0,0.35)]
               flex items-center justify-center z-20
-              hover:scale-110 hover:shadow-[0_20px_50px_rgba(56,189,248,0.5),0_8px_20px_rgba(0,0,0,0.4)]
-              transition-all duration-300 rotate-6
-              animate-float-delayed
-              border border-cyan-300/20"
+              hover:scale-110 hover:shadow-[0_25px_60px_rgba(56,189,248,0.55),0_10px_25px_rgba(0,0,0,0.45)]
+              transition-all duration-300 rotate-8
+              animate-float
+              border-2 border-cyan-300/30"
               data-aos='fade-left'
               data-aos-delay='1200'>
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
                 alt="Tailwind CSS"
-                className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-13 lg:h-13 xl:w-15 xl:h-15 drop-shadow-sm" />
+                className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-15 lg:h-15 xl:w-17 xl:h-17 drop-shadow-md" />
             </div>
 
-            {/* 4. Firebase - Bottom Right */}
+            {/* 4. Firebase - Bottom Right (Balanced) */}
             <div className="absolute 
-              bottom-8 -right-4
-              sm:bottom-10 sm:-right-5
-              md:bottom-12 md:-right-6
-              lg:bottom-16 lg:-right-8
-              xl:bottom-20 xl:-right-10
+              bottom-4 -right-4
+              sm:bottom-6 sm:-right-5
+              md:bottom-8 md:-right-7
+              lg:bottom-12 lg:-right-12
+              xl:bottom-16 xl:-right-14
               w-14 h-14
               sm:w-16 sm:h-16
               md:w-18 md:h-18
-              lg:w-22 lg:h-22
-              xl:w-26 xl:h-26
+              lg:w-24 lg:h-24
+              xl:w-28 xl:h-28
               bg-gradient-to-br from-[#fbbf24] to-[#f59e0b]
               rounded-2xl 
-              shadow-[0_15px_40px_rgba(251,191,36,0.4),0_5px_15px_rgba(0,0,0,0.3)]
+              shadow-[0_20px_50px_rgba(251,191,36,0.45),0_8px_20px_rgba(0,0,0,0.35)]
               flex items-center justify-center z-20
-              hover:scale-110 hover:shadow-[0_20px_50px_rgba(251,191,36,0.5),0_8px_20px_rgba(0,0,0,0.4)]
-              transition-all duration-300 rotate-12
-              animate-float
-              border border-yellow-300/20"
+              hover:scale-110 hover:shadow-[0_25px_60px_rgba(251,191,36,0.55),0_10px_25px_rgba(0,0,0,0.45)]
+              transition-all duration-300 rotate-10
+              animate-float-delayed
+              border-2 border-yellow-300/30"
               data-aos='fade-left'
               data-aos-delay='1400'>
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
                 alt="Firebase"
-                className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-14 lg:h-14 xl:w-16 xl:h-16 drop-shadow-sm" />
+                className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-15 lg:h-15 xl:w-17 xl:h-17 drop-shadow-md" />
             </div>
 
-            {/* 5. Git - Bottom Left */}
+            {/* 5. Git - Bottom Left (Anchor) */}
             <div className="absolute 
-              bottom-6 -left-5
-              sm:bottom-8 sm:-left-6
-              md:bottom-10 md:-left-7
-              lg:bottom-14 lg:-left-9
-              xl:bottom-18 xl:-left-11
+              bottom-3 -left-5
+              sm:bottom-5 sm:-left-6
+              md:bottom-7 md:-left-8
+              lg:bottom-10 lg:-left-13
+              xl:bottom-14 xl:-left-15
               w-13 h-13
               sm:w-15 sm:h-15
               md:w-17 md:h-17
-              lg:w-21 lg:h-21
-              xl:w-25 xl:h-25
+              lg:w-23 lg:h-23
+              xl:w-27 xl:h-27
               bg-gradient-to-br from-[#f97316] to-[#ea580c]
               rounded-full 
-              shadow-[0_15px_40px_rgba(249,115,22,0.4),0_5px_15px_rgba(0,0,0,0.3)]
+              shadow-[0_20px_50px_rgba(249,115,22,0.45),0_8px_20px_rgba(0,0,0,0.35)]
               flex items-center justify-center z-20
-              hover:scale-110 hover:shadow-[0_20px_50px_rgba(249,115,22,0.5),0_8px_20px_rgba(0,0,0,0.4)]
-              transition-all duration-300 -rotate-6
-              animate-float-delayed
-              border border-orange-400/20"
+              hover:scale-110 hover:shadow-[0_25px_60px_rgba(249,115,22,0.55),0_10px_25px_rgba(0,0,0,0.45)]
+              transition-all duration-300 -rotate-8
+              animate-float
+              border-2 border-orange-400/30"
               data-aos='fade-right'
               data-aos-delay='1600'>
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
                 alt="Git"
-                className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-13 lg:h-13 xl:w-16 xl:h-16 drop-shadow-sm" />
+                className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-15 lg:h-15 xl:w-17 xl:h-17 drop-shadow-md" />
             </div>
           </div>
 
-          {/* Enhanced Floating Animation CSS */}
+          {/* Ultra-Premium Floating Animation CSS */}
           <style jsx>{`
             @keyframes float {
               0%, 100% { 
-                transform: translateY(0px) rotate(12deg); 
+                transform: translateY(0px) scale(1); 
               }
               50% { 
-                transform: translateY(-15px) rotate(12deg); 
+                transform: translateY(-20px) scale(1.02); 
               }
             }
 
             @keyframes float-delayed {
               0%, 100% { 
-                transform: translateY(0px) rotate(-12deg); 
+                transform: translateY(0px) scale(1); 
               }
               50% { 
-                transform: translateY(-18px) rotate(-12deg); 
+                transform: translateY(-22px) scale(1.02); 
               }
             }
 
             .animate-float {
-              animation: float 3.5s ease-in-out infinite;
+              animation: float 4s ease-in-out infinite;
             }
 
             .animate-float-delayed {
-              animation: float-delayed 4s ease-in-out infinite;
+              animation: float-delayed 4.5s ease-in-out infinite;
             }
 
-            /* Premium hover effects */
+            /* Premium hover effects with smooth transition */
             @media (hover: hover) {
               .animate-float:hover,
               .animate-float-delayed:hover {
                 animation-play-state: paused;
+                transform: translateY(-5px) scale(1.1);
+              }
+            }
+
+            /* Add subtle pulse on larger screens */
+            @media (min-width: 1024px) {
+              @keyframes subtle-pulse {
+                0%, 100% { 
+                  opacity: 1; 
+                }
+                50% { 
+                  opacity: 0.95; 
+                }
+              }
+              
+              .animate-float,
+              .animate-float-delayed {
+                animation: float 4s ease-in-out infinite, subtle-pulse 3s ease-in-out infinite;
               }
             }
           `}</style>
         </figure>
+
         {/*========= Right Part ==========*/}
         <article
             data-aos='fade-left'
