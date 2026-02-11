@@ -8,7 +8,7 @@ const Projects = ({darkMode}) => {
     const projects = [
         {
             id: 1,
-            title: 'E-Commerce PlatForm',
+            title: 'E-Commerce Platform',
             desc: 'Shop premium electronics, fashion, and lifestyle essentials at Exclusive with unbeatable deals and a seamless experience.',
             image: ecommerce,
             tages: ['React', 'Redux', 'Firebase'],
@@ -38,7 +38,7 @@ const Projects = ({darkMode}) => {
             title: 'Building Stellar Websites for Startups',
             desc: 'We design and develop high-quality digital products to help early-stage startups grow and succeed.',
             image: profile4,
-            tages: ['React', 'Farmer-Motion', 'React-Icon'],
+            tages: ['React', 'Framer Motion', 'React Icons'],
             github: 'https://github.com/almahmud9/agency-landing-react',
             live: 'https://agency-landing-react.vercel.app/',
         },
@@ -69,7 +69,7 @@ const Projects = ({darkMode}) => {
                 </span>
                 </h2>
                 <p
-                className='max-w-xl mx-auto]'
+                className='max-w-xl mx-auto'
                 style={{
                     color: darkMode ? '#d1d5db' : '#6b7280'
                 }}>
@@ -161,7 +161,9 @@ const Projects = ({darkMode}) => {
             </div>
             <div
             className='text-center mt-10'>
-                <a href="#"
+                <a href="https://github.com/alma-mahmud"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                 background: 'linear-gradient(to right, #f97316, #f59e0b)',
                 }}
