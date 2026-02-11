@@ -12,6 +12,8 @@ const Projects = ({darkMode}) => {
             desc: 'Shop premium electronics, fashion, and lifestyle essentials at Exclusive with unbeatable deals and a seamless experience.',
             image: ecommerce,
             tages: ['React', 'Redux', 'Firebase'],
+            github: 'https://github.com/alma-mahmud/First-ecommerce-website',
+            live: 'https://first-ecommerce-websites.vercel.app/',
         },
         {
             id: 2,
@@ -19,6 +21,8 @@ const Projects = ({darkMode}) => {
             desc: 'Discover premium products at exclusive prices. Your one-stop shop for electronics and fashion.',
             image: profile2,
             tages: ['React', 'React-Slider', 'React-Icons'],
+            github: 'https://github.com/alma-mahmud/First-React-Project',
+            live: 'https://first-react-project-liard.vercel.app/',
         },
         {
             id: 3,
@@ -26,6 +30,8 @@ const Projects = ({darkMode}) => {
             desc: 'Learn from industry experts with our featured courses and take the next step in your professional journey.',
             image: profile3,
             tages: ['React', 'Smooth-Animations', 'React-Icons'],
+            github: 'https://github.com/alma-mahmud/Edujarr-Education',
+            live: 'https://edujarr-education.vercel.app/',
         },
         {
             id: 4,
@@ -33,6 +39,8 @@ const Projects = ({darkMode}) => {
             desc: 'We design and develop high-quality digital products to help early-stage startups grow and succeed.',
             image: profile4,
             tages: ['React', 'Farmer-Motion', 'React-Icon'],
+            github: 'https://github.com/almahmud9/agency-landing-react',
+            live: 'https://agency-landing-react.vercel.app/',
         },
     ]
   return (
@@ -116,7 +124,9 @@ const Projects = ({darkMode}) => {
                                 ))}
                             </div>
                             <div className='flex gap-2'>
-                                <a href="#"
+                                <a href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 style={{
                                     backgroundColor: darkMode ? '#374151' : '#f3f4f6',
                                     color: darkMode ? 'white' : '#374151'
@@ -130,7 +140,9 @@ const Projects = ({darkMode}) => {
                                     <span>Code</span>
                                 </a>
                                 {/*==== Demo ====*/}
-                                    <a href="#"
+                                    <a href={project.live}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                 style={{
                                     background: 'linear-gradient(to right, #f97316, #f59e0b)',
                                 }}
