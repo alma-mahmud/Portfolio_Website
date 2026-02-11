@@ -128,6 +128,18 @@ const Skills = ({ darkMode }) => {
                                         {skill.level}%
                                     </span>
                                 </div>
+                                <div
+                                className="w-full h-3 rounded-full overflow-hidden"
+                                style={{
+                                    backgroundColor: darkMode ? '#374151' : '#e5e7eb'
+                                }}>
+                                    <div
+                                    className={`h-full rounded-full bg-linear-to-r ${skill.color} transition-all duration-1000
+                                    ease-out`}
+                                    style={{ width: `${skill.level}%`}}>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     ))}
