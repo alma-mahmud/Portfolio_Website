@@ -2,10 +2,8 @@ import aboutimg from '../../src/assets/About/about.jpg'
 
 const About = ({darkMode}) => {
   return (
-    <section id="about" className={`min-h-[100dvh] overflow-hidden flex items-center justify-center px-4 sm:px-6 ${
-      darkMode ? 'bg-gray-900' : 'bg-gray-50'
-    }`}>
-      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+    <section id="about" className={`min-h-[100dvh] overflow-hidden flex items-center justify-center px-4 sm:px-6`}>
+      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
         <figure
           data-aos='fade-up'
           data-aos-delay='300'
@@ -194,7 +192,7 @@ const About = ({darkMode}) => {
                 <header>
                     <h1 className='text-3xl sm:text-4xl lg:text-5xl
                     xl:text-6xl font-bold mb-4 sm:mb-6
-                    text-transparent bg-linear-to-r from-orange-400
+                    text-transparent bg-gradient-to-r from-orange-400
                     to-orange-600 bg-clip-text'
                     data-aos='fade-up'
                     data-aos-delay='400'>
@@ -248,13 +246,19 @@ const About = ({darkMode}) => {
                     </div>
                 </div>
                 <button 
-                className={`w-full sm:w-auto border-2 border-orange-500 inline-flex items-center  justify-center py-2 px-4 sm:px-6 hover:shadow-[0_0_40px_rgba(255,165,0,0.7)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 transform cursor-pointer`}>
+                className={`w-full sm:w-auto border-2 border-orange-500 inline-flex items-center  justify-center py-2 px-4 sm:px-6 hover:shadow-[0_0_40px_rgba(255,165,0,0.7)] rounded-full text-base sm:text-lg font-semibold transition-all duration-300 transform cursor-pointer 
+                ${darkMode
+                  ? 'text-white bg-orange-500/10'
+                  : 'text-gray-800 bg-white/90'
+                }`}
+                data-aos='fade-up'
+                data-aos-delay='800'>
                   Learn More
                 </button>
         </article>
       </div>
     </section>
-  )
+  );
 }
 
 export default About
