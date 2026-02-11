@@ -3,8 +3,9 @@ import AOS, { refresh } from 'aos'
 import 'aos/dist/aos.css'
 import Navber from './components/Navber'
 import Hero from './components/Hero'
+import About from './components/About'
 
-function App() {
+const App = () => {
   const [darkMode, setDarkMode] = useState(true)
   
   useEffect(() => {
@@ -17,7 +18,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    AOS, refresh()
+    AOS.refresh()
   }, [darkMode])
 
   const toggleDarkMode = () => {
@@ -34,6 +35,7 @@ function App() {
     }>
       <Navber darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <Hero darkMode={darkMode} />
+      <About darkMode={darkMode}/>
     </div>
   ) 
 }
