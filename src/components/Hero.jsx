@@ -86,7 +86,8 @@ const Hero = ({darkMode}) => {
                     <p className={`mb-6 sm:mb-8 leading-relaxed max-w-md sm:max-w-lg text-left md:text-center lg:text-left ${theme.textSecondary}`}
                     data-aos='fade-up'
                     data-aos-delay='600'>
-                        "Frontend Developer | React & Redux Specialist. 3 months of internship experience. I thrive in collaborative environments, building scalable e-commerce sites and solving complex logic. Whether it’s handling Firebase auth or fetching data with Axios, I focus on writing clean, functional code. I’m a daily coder, a problem solver, and a team player looking to build things that matter."
+                        Frontend Developer | React & Redux Specialist
+Passionate about building scalable web apps with clean, functional code.
                     </p>
                     {/* Button */}
                     <div className='w-full pt-4 sm:pt-6'>

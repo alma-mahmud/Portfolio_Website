@@ -23,7 +23,7 @@ const Skills = ({ darkMode }) => {
     icon: 'https://cdn.simpleicons.org/vite/646CFF',
     level: 75,
     color: 'from-red-500 to-orange-500' },
-  { name: 'Next.js (Basic)',
+  { name: 'Next.js',
     icon: 'https://cdn.simpleicons.org/nextdotjs/000000',
     level: 60,
     color: 'from-gray-700 to-black' },
@@ -65,7 +65,7 @@ const Skills = ({ darkMode }) => {
                         color: darkMode ? '#d1d5db' : '#4b5563'
                     }}
                     >
-                        These are the tools I use to bring ideas to life. Every tech in this list has a story—whether it was crushing a complex bug or turning a pixel-perfect design into a real, working product.
+                        These are the tools I use to bring ideas to life. Every tech in this list has a story whether it was crushing a complex bug or turning a pixel-perfect design into a real, working product.
                     </p>
                 </div>
                 <div className="flex flex-wrap -m-4"
