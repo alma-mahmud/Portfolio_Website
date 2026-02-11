@@ -65,7 +65,7 @@ const Skills = ({ darkMode }) => {
                         color: darkMode ? '#d1d5db' : '#4b5563'
                     }}
                     >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis facere voluptates adipisci tenetur consectetur asperiores earum ullam minima molestias
+                        These are the tools I use to bring ideas to life. Every tech in this list has a story—whether it was crushing a complex bug or turning a pixel-perfect design into a real, working product.
                     </p>
                 </div>
                 <div className="flex flex-wrap -m-4"
@@ -137,7 +137,15 @@ const Skills = ({ darkMode }) => {
                                     className={`h-full rounded-full bg-linear-to-r ${skill.color} transition-all duration-1000
                                     ease-out`}
                                     style={{ width: `${skill.level}%`}}>
-
+                                    </div>
+                                </div>
+                                <div className={`mt-6 pt-4 border-t
+                                    ${darkMode ? 'border-gray-700' : 'border-gray-300'}`}>
+                                    <div
+                                    className="h-1 rounded-full opacity-70 group-hover:w-full transition-all duration-500 w-1/3"
+                                    style={{
+                                        background: 'linear-gradient(to right, #f97316, #f59e0b)'
+                                    }}>
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +155,7 @@ const Skills = ({ darkMode }) => {
             </div>
         </div>
     </section>
-  )
-}
+  );
+};
 
 export default Skills
