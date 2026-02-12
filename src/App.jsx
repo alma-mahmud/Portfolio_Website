@@ -9,6 +9,7 @@ import Projects from './components/Projects'
 import WhyChooseMe from './components/WhyChooseMe'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(true)
@@ -46,6 +47,7 @@ const App = () => {
       <WhyChooseMe darkMode={darkMode}/>
       <Testimonials darkMode={darkMode}/>
       <Contact darkMode={darkMode}/>
+      <Footer darkMode={darkMode}/>
     </div>
   ) 
 }
