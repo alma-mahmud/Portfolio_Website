@@ -1,380 +1,144 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { FaQuoteLeft, FaStar } from 'react-icons/fa'
-import { useRef, useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const Testimonials = ({ darkMode }) => {
-    const scrollRef = useRef(null)
     const [currentIndex, setCurrentIndex] = useState(0)
     const [isHovered, setIsHovered] = useState(false)
 
     const testimonials = [
-        {
-            id: 1,
-            name: 'Jihad Miya',
-            designation: 'Senior Frontend Developer',
-            company: 'Creative IT Institute',
-            image: null, // You can add image URL here if needed
-            feedback: 'Sujan consistently delivered clean and responsive interfaces. His attention to detail and problem-solving skills significantly improved our project workflow.',
-            rating: 5,
-        },
-        {
-            id: 2,
-            name: 'Mahammad Nadil',
-            designation: 'Team Lead',
-            company: 'Creative IT Institute',
-            image: null,
-            feedback: 'Working with Sujan was a great experience. He writes maintainable code and adapts quickly to new technologies. A valuable team member.',
-            rating: 5,
-        },
-        {
-            id: 3,
-            name: 'Fima Akter',
-            designation: 'UI/UX Designer',
-            company: 'Creative IT Institute',
-            image: null,
-            feedback: 'Sujan transformed our designs into pixel-perfect implementations. His collaboration skills and commitment to quality made the project successful.',
-            rating: 5,
-        },
+        { id: 1, name: 'Jihad Miya', designation: 'Senior Frontend Developer', company: 'Creative IT Institute', feedback: 'Sujan consistently delivered clean and responsive interfaces. His attention to detail and problem-solving skills significantly improved our project workflow.', rating: 5 },
+        { id: 2, name: 'Mahammad Nadil', designation: 'Team Lead', company: 'Creative IT Institute', feedback: 'Working with Sujan was a great experience. He writes maintainable code and adapts quickly to new technologies. A valuable team member.', rating: 5 },
+        { id: 3, name: 'Fima Akter', designation: 'UI/UX Designer', company: 'Creative IT Institute', feedback: 'Sujan transformed our designs into pixel-perfect implementations. His collaboration skills and commitment to quality made the project successful.', rating: 5 },
+        { id: 4, name: 'Sk Omar Hossen', designation: 'Full Stack Developer', company: 'Creative IT Institute', feedback: 'Great team player with excellent React skills. Sujan always delivers high-quality work on time and helps others grow.', rating: 5 },
     ]
 
-    // Auto-scroll effect
+    // Auto-play logic
     useEffect(() => {
-        if (isHovered) return // Don't auto-scroll when user is hovering
-
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => {
-                const nextIndex = (prevIndex + 1) % testimonials.length
-                
-                // Smooth scroll to next card
-                if (scrollRef.current) {
-                    const cardWidth = scrollRef.current.scrollWidth / testimonials.length
-                    scrollRef.current.scrollTo({
-                        left: cardWidth * nextIndex,
-                        behavior: 'smooth'
-                    })
-                }
-                
-                return nextIndex
-            })
-        }, 4000) // Change slide every 4 seconds
-
-        return () => clearInterval(interval)
+        if (isHovered) return
+        const timer = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+        }, 4000)
+        return () => clearInterval(timer)
     }, [isHovered, testimonials.length])
 
-    // Manual scroll handler
-    const handleScroll = () => {
-        if (scrollRef.current) {
-            const cardWidth = scrollRef.current.scrollWidth / testimonials.length
-            const scrollPosition = scrollRef.current.scrollLeft
-            const newIndex = Math.round(scrollPosition / cardWidth)
-            setCurrentIndex(newIndex)
+    // Center Card logic based on index
+    const getCardStyle = (index) => {
+        const isActive = index === currentIndex
+        return {
+            scale: isActive ? 1.05 : 0.9,
+            opacity: isActive ? 1 : 0.5,
+            zIndex: isActive ? 20 : 10,
+            filter: isActive ? 'blur(0px)' : 'blur(1px)',
         }
-    }
-
-    // Manual navigation
-    const scrollToIndex = (index) => {
-        if (scrollRef.current) {
-            const cardWidth = scrollRef.current.scrollWidth / testimonials.length
-            scrollRef.current.scrollTo({
-                left: cardWidth * index,
-                behavior: 'smooth'
-            })
-            setCurrentIndex(index)
-        }
-    }
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.1,
-            },
-        },
-    }
-
-    const cardVariants = {
-        hidden: { 
-            opacity: 0, 
-            x: 50,
-            scale: 0.95,
-        },
-        visible: {
-            opacity: 1,
-            x: 0,
-            scale: 1,
-            transition: {
-                duration: 0.6,
-                ease: [0.25, 0.46, 0.45, 0.94],
-            },
-        },
     }
 
     return (
-        <section
-            id="testimonials"
-            style={{
-                backgroundColor: darkMode ? '#0f172a' : '#f8fafc',
-                transition: 'background-color 0.5s ease'
-            }}
-            className="relative py-20 overflow-hidden"
-        >
-            {/* Background Decorative Elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div 
-                    className="absolute top-1/2 -left-24 w-96 h-96 rounded-full opacity-10 blur-3xl"
-                    style={{
-                        background: 'linear-gradient(135deg, #f97316 0%, #f59e0b 100%)',
-                    }}
-                />
-                <div 
-                    className="absolute top-1/2 -right-24 w-96 h-96 rounded-full opacity-10 blur-3xl"
-                    style={{
-                        background: 'linear-gradient(135deg, #f59e0b 0%, #f97316 100%)',
-                    }}
-                />
+        <section id="testimonials" className={`relative py-24 overflow-hidden transition-colors duration-700 ${darkMode ? 'bg-[#0f172a]' : 'bg-[#f8fafc]'}`}>
+            
+            {/* Background Glows */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute -top-24 -left-24 w-96 h-96 bg-orange-500/10 rounded-full blur-[120px]" />
+                <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px]" />
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
-                {/* Section Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: -30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, ease: 'easeOut' }}
-                    className="text-center mb-16"
-                >
-                    <motion.div
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
-                        style={{
-                            backgroundColor: darkMode ? '#1e293b' : '#ffffff',
-                            border: `1px solid ${darkMode ? '#334155' : '#e2e8f0'}`,
-                        }}
+                {/* Header */}
+                <div className="text-center mb-16">
+                    <motion.span 
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className={`inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border ${darkMode ? 'bg-slate-800 border-slate-700 text-orange-400' : 'bg-white border-slate-200 text-orange-600 shadow-sm'}`}
                     >
-                        <FaQuoteLeft className="text-orange-500 text-sm" />
-                        <span
-                            className="text-sm font-medium"
-                            style={{
-                                color: darkMode ? '#cbd5e1' : '#64748b',
-                            }}
-                        >
-                            Client & Team Feedback
-                        </span>
-                    </motion.div>
-
-                    <h2
-                        className="text-4xl sm:text-5xl font-bold mb-4 transition-colors duration-500"
-                        style={{
-                            color: darkMode ? '#f8fafc' : '#0f172a',
-                        }}
-                    >
-                        What{' '}
-                        <span
-                            style={{
-                                background: 'linear-gradient(135deg, #f97316 0%, #f59e0b 100%)',
-                                WebkitBackgroundClip: 'text',
-                                backgroundClip: 'text',
-                                color: 'transparent',
-                            }}
-                        >
-                            People Say
-                        </span>
+                        <FaQuoteLeft className="inline mr-2 mb-1" /> Testimonials
+                    </motion.span>
+                    <h2 className={`text-4xl md:text-5xl font-black mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                        What <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">People Say</span>
                     </h2>
-                    <p
-                        className="max-w-2xl mx-auto text-base sm:text-lg transition-colors duration-500"
-                        style={{
-                            color: darkMode ? '#94a3b8' : '#64748b',
-                        }}
-                    >
-                        Feedback from mentors and team members I've worked with
-                    </p>
-                </motion.div>
+                </div>
 
-                {/* Testimonials Scroll Container */}
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.15 }}
-                    className="relative"
+                {/* Slider Container */}
+                <div 
+                    className="relative h-[450px] flex items-center justify-center"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
                 >
-                    {/* Scroll Wrapper */}
-                    <div
-                        ref={scrollRef}
-                        onScroll={handleScroll}
-                        onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
-                        className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide"
-                        style={{
-                            scrollbarWidth: 'none',
-                            msOverflowStyle: 'none',
-                        }}
-                    >
-                        {testimonials.map((testimonial) => (
-                            <motion.div
-                                key={testimonial.id}
-                                variants={cardVariants}
-                                whileHover={{ 
-                                    y: -10,
-                                    transition: { duration: 0.3, ease: 'easeOut' }
-                                }}
-                                className="group relative flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center"
-                            >
-                                {/* Gradient Border Effect */}
-                                <div
-                                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"
-                                    style={{
-                                        background: 'linear-gradient(135deg, #f97316, #f59e0b)',
-                                        padding: '2px',
+                    <div className="flex items-center justify-center w-full max-w-6xl relative">
+                        {testimonials.map((testimonial, index) => {
+                            // Logic to determine position
+                            let position = index - currentIndex
+                            if (index === 0 && currentIndex === testimonials.length - 1) position = 1
+                            if (index === testimonials.length - 1 && currentIndex === 0) position = -1
+
+                            return (
+                                <motion.div
+                                    key={testimonial.id}
+                                    initial={false}
+                                    animate={{
+                                        x: position * 340, // Distance between cards
+                                        ...getCardStyle(index)
                                     }}
-                                />
-                                
-                                <div
-                                    style={{
-                                        background: darkMode
-                                            ? 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)'
-                                            : 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
-                                        border: `1px solid ${darkMode ? '#334155' : '#e2e8f0'}`,
-                                        transition: 'all 0.5s ease'
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 260,
+                                        damping: 25
                                     }}
-                                    className="relative rounded-2xl p-7 h-full duration-300 hover:border-transparent transition-all overflow-hidden shadow-lg"
+                                    className="absolute w-full max-w-[320px] md:max-w-[380px] cursor-pointer"
+                                    onClick={() => setCurrentIndex(index)}
                                 >
-                                    {/* Hover Glow Effect */}
-                                    <div
-                                        className="absolute top-0 right-0 w-32 h-32 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-2xl"
-                                        style={{
-                                            background: 'linear-gradient(135deg, #f97316, #f59e0b)',
-                                        }}
-                                    />
-
-                                    {/* Quote Icon */}
-                                    <motion.div
-                                        initial={{ rotate: 0 }}
-                                        whileHover={{ rotate: 180 }}
-                                        transition={{ duration: 0.5 }}
-                                        className="inline-flex p-3 rounded-xl mb-5 shadow-md relative z-10"
-                                        style={{
-                                            background: darkMode 
-                                                ? 'linear-gradient(135deg, #f97316 0%, #f59e0b 100%)' 
-                                                : '#fff7ed',
-                                        }}
-                                    >
-                                        <FaQuoteLeft
-                                            className="text-xl"
-                                            style={{
-                                                color: darkMode ? '#ffffff' : '#f97316',
-                                            }}
-                                        />
-                                    </motion.div>
-
-                                    {/* Feedback Text */}
-                                    <p
-                                        className="text-sm sm:text-base leading-relaxed mb-6 relative z-10 transition-colors duration-500 min-h-[80px]"
-                                        style={{
-                                            color: darkMode ? '#cbd5e1' : '#475569',
-                                        }}
-                                    >
-                                        "{testimonial.feedback}"
-                                    </p>
-
-                                    {/* Rating Stars */}
-                                    <div className="flex gap-1 mb-5 relative z-10">
-                                        {[...Array(testimonial.rating)].map((_, i) => (
-                                            <FaStar
-                                                key={i}
-                                                className="text-yellow-500 text-sm"
-                                            />
-                                        ))}
-                                    </div>
-
-                                    {/* Person Info */}
-                                    <div className="flex items-center gap-4 relative z-10">
-                                        {/* Avatar */}
-                                        <div
-                                            className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold flex-shrink-0 shadow-md"
-                                            style={{
-                                                background: 'linear-gradient(135deg, #f97316 0%, #f59e0b 100%)',
-                                                color: '#ffffff',
-                                            }}
-                                        >
-                                            {testimonial.name.charAt(0)}
+                                    <div className={`relative p-8 rounded-3xl border shadow-2xl transition-colors duration-500 ${
+                                        index === currentIndex 
+                                        ? (darkMode ? 'bg-slate-800 border-orange-500/50' : 'bg-white border-orange-200') 
+                                        : (darkMode ? 'bg-slate-900 border-slate-800' : 'bg-slate-50 border-transparent')
+                                    }`}>
+                                        <div className={`absolute top-0 right-0 p-6 opacity-10 text-6xl ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                                            <FaQuoteLeft />
+                                        </div>
+                                        
+                                        <div className="flex gap-1 mb-6">
+                                            {[...Array(5)].map((_, i) => (
+                                                <FaStar key={i} className="text-amber-400 text-sm" />
+                                            ))}
                                         </div>
 
-                                        {/* Details */}
-                                        <div>
-                                            <h4
-                                                className="font-bold text-base mb-1 transition-colors duration-500"
-                                                style={{
-                                                    color: darkMode ? '#f8fafc' : '#0f172a',
-                                                }}
-                                            >
-                                                {testimonial.name}
-                                            </h4>
-                                            <p
-                                                className="text-xs font-medium transition-colors duration-500"
-                                                style={{
-                                                    color: darkMode ? '#94a3b8' : '#64748b',
-                                                }}
-                                            >
-                                                {testimonial.designation}
-                                            </p>
-                                            <p
-                                                className="text-xs transition-colors duration-500"
-                                                style={{
-                                                    background: 'linear-gradient(135deg, #f97316 0%, #f59e0b 100%)',
-                                                    WebkitBackgroundClip: 'text',
-                                                    backgroundClip: 'text',
-                                                    color: 'transparent',
-                                                }}
-                                            >
-                                                {testimonial.company}
-                                            </p>
+                                        <p className={`text-lg italic leading-relaxed mb-8 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+                                            "{testimonial.feedback}"
+                                        </p>
+
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-orange-500/20">
+                                                {testimonial.name.charAt(0)}
+                                            </div>
+                                            <div>
+                                                <h4 className={`font-bold text-lg ${darkMode ? 'text-white' : 'text-slate-900'}`}>{testimonial.name}</h4>
+                                                <p className="text-sm text-orange-500 font-medium">{testimonial.designation}</p>
+                                                <p className={`text-xs ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>{testimonial.company}</p>
+                                            </div>
                                         </div>
                                     </div>
-
-                                    {/* Bottom Accent Line */}
-                                    <div
-                                        className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500"
-                                        style={{
-                                            background: 'linear-gradient(90deg, #f97316, #f59e0b)',
-                                        }}
-                                    />
-                                </div>
-                            </motion.div>
-                        ))}
+                                </motion.div>
+                            )
+                        })}
                     </div>
+                </div>
 
-                    {/* Scroll Indicator */}
-                    <div className="flex justify-center gap-2 mt-8">
-                        {testimonials.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => scrollToIndex(index)}
-                                className="w-2 h-2 rounded-full transition-all duration-300 cursor-pointer hover:scale-125"
-                                style={{
-                                    background: index === currentIndex 
-                                        ? 'linear-gradient(135deg, #f97316, #f59e0b)' 
-                                        : darkMode ? '#334155' : '#e2e8f0',
-                                    width: index === currentIndex ? '24px' : '8px',
-                                }}
-                                aria-label={`Go to testimonial ${index + 1}`}
-                            />
-                        ))}
-                    </div>
-                </motion.div>
+                {/* Modern Indicators */}
+                <div className="flex justify-center gap-3 mt-12">
+                    {testimonials.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setCurrentIndex(index)}
+                            className="relative h-2 group"
+                        >
+                            <div className={`h-full rounded-full transition-all duration-500 ${
+                                index === currentIndex 
+                                ? 'w-12 bg-gradient-to-r from-orange-500 to-amber-500' 
+                                : `w-3 ${darkMode ? 'bg-slate-700' : 'bg-slate-300'} group-hover:bg-slate-400`
+                            }`} />
+                        </button>
+                    ))}
+                </div>
             </div>
-
-            {/* Custom Scrollbar Styles */}
-            <style jsx>{`
-                .scrollbar-hide::-webkit-scrollbar {
-                    display: none;
-                }
-            `}</style>
         </section>
     )
 }
