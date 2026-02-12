@@ -56,7 +56,7 @@ const Hero = ({ darkMode }) => {
                         </h1>
 
                         {/* Typewriter Effect Section */}
-                        <div className={`mb-3 sm:mb-5 text-xl sm:text-2xl font-semibold min-h-10 text-center lg:text-left ${theme.textPrimary}`}
+                        <div className={`mb-3 sm:mb-5 text-xl sm:text-4xl font-semibold min-h-10 text-center lg:text-left ${theme.textPrimary}`}
                              data-aos='fade-up' data-aos-delay='600'>
                             <span style={{ color: '#f97316' }}>
                                 <Typewriter

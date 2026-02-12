@@ -8,6 +8,7 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import WhyChooseMe from './components/WhyChooseMe'
 import Testimonials from './components/Testimonials'
+import Contact from './components/Contact'
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(true)
@@ -44,6 +45,7 @@ const App = () => {
       <Projects darkMode={darkMode}/>
       <WhyChooseMe darkMode={darkMode}/>
       <Testimonials darkMode={darkMode}/>
+      <Contact darkMode={darkMode}/>
     </div>
   ) 
 }
