@@ -1,4 +1,4 @@
-import github from '../assets/Hero/Github.png'
+import { VscGithub } from "react-icons/vsc";
 import Linkedin from '../assets/Hero/Linkedin.png'
 import whatsapp from '../assets/Hero/whatsapp.png'
 import facebook from '../assets/Hero/facebook.png'
@@ -10,10 +10,11 @@ import { Typewriter } from 'react-simple-typewriter'
 
 const Hero = ({ darkMode }) => {
     const socialIcons = [
-        { icon: github, alt: 'GitHub', link: 'https://github.com/alma-mahmud' },
-        { icon: Linkedin, alt: 'Linkedin', link: 'https://www.linkedin.com/in/alma-mahmud/' },
-        { icon: whatsapp, alt: 'whatsapp', link: 'https://wa.me/8801566068310' },
-        { icon: facebook, alt: 'facebook', link: 'https://www.facebook.com/almahmud088' },
+        // isIcon flag Diya hoyeche karon jokhn react icon hobe tokhn ture ar onno time e false:
+        { icon: VscGithub, alt: 'GitHub', link: 'https://github.com/alma-mahmud', isIcon: true },
+        { icon: Linkedin, alt: 'Linkedin', link: 'https://www.linkedin.com/in/alma-mahmud/', isIcon: false },
+        { icon: whatsapp, alt: 'whatsapp', link: 'https://wa.me/8801566068310', isIcon: false },
+        { icon: facebook, alt: 'facebook', link: 'https://www.facebook.com/almahmud088', isIcon: false },
     ];
 
     const theme = {
@@ -31,13 +32,19 @@ const Hero = ({ darkMode }) => {
                 <div className='container mx-auto flex px-4 sm:px-8 lg:px-14 py-12 lg:py-32 flex-col lg:flex-row items-center justify-between lg:mt-0 mt-14'>
                     <div className='lg:h-1/2 w-full flex flex-col items-center lg:items-start mb-12 lg:mb-0'>
                         
-                        {/* Social Icons */}
+                        {/* Social Icons*/}
                         <div className='flex justify-center lg:justify-start gap-4 sm:gap-6 sm:mb-7 w-full'>
                             {socialIcons.map((social, index) => (
                                 <a key={index} href={social.link} target='_blank' rel="noopener noreferrer"
-                                   className='transform hover:scale-110 transition-transform duration-300'>
-                                    <img src={social.icon} alt={social.alt} 
-                                         className={`w-8 h-8 sm:w-10 sm:h-10 object-contain ${darkMode ? '' : 'filter brightness-75'}`} />
+                                   className='transform hover:scale-110 transition-transform duration-300 flex items-center justify-center'>
+                                    {social.isIcon ? (
+                                        /* ========Icon hole aikahe render hobe ======*/
+                                        <social.icon className={`text-[32px] sm:text-[40px] ${darkMode ? 'text-white' : 'text-gray-800'}`} />
+                                    ) : (
+                                        /* ===========Ar Image hoile aikahne hobe======= */
+                                        <img src={social.icon} alt={social.alt} 
+                                             className={`w-8 h-8 sm:w-10 sm:h-10 object-contain ${darkMode ? '' : 'filter brightness-75'}`} />
+                                    )}
                                 </a>
                             ))}
                         </div>
@@ -49,7 +56,7 @@ const Hero = ({ darkMode }) => {
                         </h1>
 
                         {/* Typewriter Effect Section */}
-                        <div className={`mb-6 sm:mb-8 text-xl sm:text-2xl font-semibold min-h-[40px] text-center lg:text-left ${theme.textPrimary}`}
+                        <div className={`mb-3 sm:mb-5 text-xl sm:text-2xl font-semibold min-h-10 text-center lg:text-left ${theme.textPrimary}`}
                              data-aos='fade-up' data-aos-delay='600'>
                             <span style={{ color: '#f97316' }}>
                                 <Typewriter
@@ -66,10 +73,10 @@ const Hero = ({ darkMode }) => {
 
                         <p className={`mb-6 sm:mb-8 leading-relaxed max-w-md sm:max-w-lg text-center lg:text-left ${theme.textSecondary}`}
                            data-aos='fade-up' data-aos-delay='650'>
-                            Passionate about building scalable web apps with clean, functional code.
+                            Building functional websites and digital solutions that solve real problems.
                         </p>
 
-                        {/* Buttons */}
+                        {/* Buttons Area */}
                         <div className='w-full pt-4 sm:pt-6'>
                             <div className='flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4'
                                  data-aos='fade-up' data-aos-delay='700'>
@@ -101,7 +108,6 @@ const Hero = ({ darkMode }) => {
                     </div>
                 </div>
 
-                {/* Decorative Circle */}
                 <div className={`absolute -top-20 -left-20 w-40 h-40 sm:w-64 sm:h-64 ${theme.decorativeCircle} rounded-full blur-3xl animate-pulse hidden sm:block`}></div>
             </section>
         </div>
