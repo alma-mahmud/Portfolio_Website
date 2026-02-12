@@ -12,6 +12,7 @@ import { useState } from 'react'
         { name: 'About', link: '#about' },
         { name: 'Skills', link: '#skills' },
         { name: 'Projects', link: '#projects' },
+        { name: 'Expertise', link: '#expertise' },
         { name: 'Contact', link: '#contact' },
     ];
 

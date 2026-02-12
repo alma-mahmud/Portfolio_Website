@@ -69,7 +69,7 @@ const WhyChooseMe = ({ darkMode }) => {
 
     return (
         <section
-            id="why-choose-me"
+            id="expertise"
             style={{
                 backgroundColor: darkMode ? '#0f172a' : '#f8fafc',
                 transition: 'background-color 0.5s ease'
@@ -254,7 +254,7 @@ const WhyChooseMe = ({ darkMode }) => {
                     ))}
                 </motion.div>
 
-                {/* Stats Section - এনিমেশন সহ ফিক্সড */}
+                {/* Stats Section  */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
