@@ -31,18 +31,21 @@ const Testimonials = ({ darkMode }) => {
     const handleNext = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length)
     const handlePrev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
 
-    // Drag support
+    // Drag support ( ফোনের জন্য সেন্সিটিভিটি ২০ এ সেট করা )
     const onDragEnd = (event, info) => {
-        if (info.offset.x < -50) handleNext()
-        else if (info.offset.x > 50) handlePrev()
+        if (info.offset.x < -20) handleNext()
+        else if (info.offset.x > 20) handlePrev()
     }
 
     return (
-        <section id="testimonials" className={`relative py-24 overflow-hidden transition-colors duration-700 ${darkMode ? 'bg-[#0f172a]' : 'bg-[#f8fafc]'}`}>
-            
-            <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                <div className="absolute -top-24 -left-24 w-96 h-96 bg-orange-500/10 rounded-full blur-[120px]" />
-                <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px]" />
+        <section 
+            id="testimonials" 
+            className={`relative py-24 overflow-hidden transition-colors duration-700 ${darkMode ? 'bg-[#0f172a]' : 'bg-[#f8fafc]'}`}
+        >
+            {/* Background Glows (GPU Optimized) */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
+                <div className="absolute -top-24 -left-24 w-96 h-96 bg-orange-500/10 rounded-full blur-[120px] will-change-transform" />
+                <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] will-change-transform" />
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
@@ -59,8 +62,9 @@ const Testimonials = ({ darkMode }) => {
                     </h2>
                 </div>
 
+                {/* Slider Container - touch-none এবং GPU hints যোগ করা হয়েছে */}
                 <div 
-                    className="relative h-[480px] flex items-center justify-center touch-none"
+                    className="relative h-[480px] flex items-center justify-center touch-none select-none"
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
@@ -77,22 +81,29 @@ const Testimonials = ({ darkMode }) => {
                                     key={testimonial.id}
                                     drag="x"
                                     dragConstraints={{ left: 0, right: 0 }}
+                                    dragElastic={0.15} // ফোনের জন্য হালকা বাউন্স
                                     onDragEnd={onDragEnd}
                                     animate={{
-                                        x: position * (window.innerWidth < 768 ? 320 : 400),
+                                        x: position * (window.innerWidth < 768 ? 280 : 400),
                                         scale: isActive ? 1.05 : 0.85,
                                         opacity: isActive ? 1 : 0.4,
                                         zIndex: isActive ? 30 : 10,
-                                        rotateY: position * 15,
+                                        rotateY: position * 12, // ফোনের জন্য রোটেশন কিছুটা কমানো
                                         filter: isActive ? 'blur(0px)' : 'blur(2px)',
                                     }}
-                                    transition={{ type: "spring", stiffness: 200, damping: 25 }}
-                                    className="absolute w-full max-w-[320px] md:max-w-[400px] cursor-grab active:cursor-grabbing"
+                                    transition={{ 
+                                        type: "spring", 
+                                        stiffness: 180, 
+                                        damping: 22,
+                                        mass: 0.8 // হালকা মুভমেন্টের জন্য
+                                    }}
+                                    style={{ willChange: "transform, opacity" }} // ব্রাউজারকে আগেই জানানো
+                                    className="absolute w-full max-w-[290px] md:max-w-[400px] cursor-grab active:cursor-grabbing"
                                     onClick={() => setCurrentIndex(index)}
                                 >
-                                    <div className={`relative p-8 rounded-[2.5rem] border shadow-2xl transition-all duration-500 backdrop-blur-sm ${
+                                    <div className={`relative p-8 rounded-[2.5rem] border shadow-2xl transition-all duration-500 backdrop-blur-md ${
                                         isActive 
-                                        ? (darkMode ? 'bg-slate-800/80 border-orange-500/50' : 'bg-white border-orange-200') 
+                                        ? (darkMode ? 'bg-slate-800/90 border-orange-500/50' : 'bg-white border-orange-200') 
                                         : (darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-slate-50 border-transparent')
                                     }`}>
                                         <div className={`absolute top-0 right-0 p-6 opacity-10 text-6xl ${darkMode ? 'text-white' : 'text-slate-900'}`}>
@@ -110,12 +121,12 @@ const Testimonials = ({ darkMode }) => {
                                         </p>
 
                                         <div className="flex items-center gap-4">
-                                            {/* ইমেজ হ্যান্ডেলিং */}
                                             <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg border-2 border-orange-500/20">
                                                 <img 
                                                     src={testimonial.image} 
                                                     alt={testimonial.name} 
-                                                    className="w-full h-full object-cover"
+                                                    className="w-full h-full object-cover pointer-events-none" // ফোনের ইমেজ সিলেকশন বন্ধ করবে
+                                                    loading="eager"
                                                 />
                                             </div>
                                             <div>
