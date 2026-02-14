@@ -3,6 +3,10 @@ import { div } from "framer-motion/client";
 
 const Skills = ({ darkMode }) => {
     const skills = [
+  { name: 'JavaScript',
+    icon: 'https://cdn.simpleicons.org/javascript/F7DF1E',
+    level: 75,
+    color: 'from-yellow-400 to-yellow-600' },
   { name: 'React',
     icon: 'https://cdn.simpleicons.org/react/61DAFB',
     level: 75,
